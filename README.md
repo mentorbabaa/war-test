@@ -4,8 +4,8 @@ This repository demonstrates a production-ready CI/CD pipeline to build, contain
 
 ---
 
-## 📂 Repository Structure
-"""
+📂 Repository Structure
+
 ├── .github
 │   └── workflows
 │       ├── build.yml        # CI: Build, Dockerize & Push to DockerHub
@@ -13,7 +13,7 @@ This repository demonstrates a production-ready CI/CD pipeline to build, contain
 ├── Dockerfile               # Docker build for WAR file
 ├── pom.xml                  # Maven project descriptor
 └── src/                     # Java source code
-"""
+
 
 
 ---
