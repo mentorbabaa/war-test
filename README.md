@@ -150,3 +150,14 @@ jobs:
             docker rm war-test || true
             docker run -d --name war-test -p 8080:8080 --restart unless-stopped ${{ secrets.DOCKERHUB_USERNAME }}/war-test-app:${{ github.sha }}
 ```
+
+## 🧰 Tools Used
+
+Java 17 / Maven
+Docker
+GitHub Actions
+DockerHub
+AWS EC2
+SSH via Appleboy GitHub Action
+
+Enjoy !!! Powered by Mentorbabaa
