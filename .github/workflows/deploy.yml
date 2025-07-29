@@ -1,0 +1,24 @@
+name: Deploy to EC2
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Docker image tag to deploy'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy on EC2
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          docker pull youruser/war-test-app:${{ github.event.inputs.image_tag }}
+          docker stop war-test || true
+          docker rm war-test || true
+          docker run -d --name war-test -p 8080:8080 --restart unless-stopped youruser/war-test-app:${{ github.event.inputs.image_tag }}
