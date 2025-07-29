@@ -1,4 +1,4 @@
-name: Java WAR Build & Push to DockerHub
+name: Build and Push
 
 on:
   push:
