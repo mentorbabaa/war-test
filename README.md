@@ -14,6 +14,7 @@ This repository demonstrates a production-ready CI/CD pipeline to build, contain
 ├── pom.xml                  # Maven project descriptor
 └── src/                     # Java source code
 
+<img width="1338" height="412" alt="image" src="https://github.com/user-attachments/assets/e28a47fd-5e15-4479-93f4-c2699cf542aa" />
 
 
 ---
