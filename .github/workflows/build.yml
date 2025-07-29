@@ -1,10 +1,9 @@
-name: Java WAR Build
+name: Java WAR Build & Push to DockerHub
 
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,10 +17,24 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17' # or 11 depending on your project
+          java-version: '17'
 
       - name: Build with Maven
         run: mvn clean package
+
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/war-test-app:${{ github.sha }} .
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Docker Image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/war-test-app:${{ github.sha }}
 
       - name: Upload WAR artifact
         uses: actions/upload-artifact@v4
