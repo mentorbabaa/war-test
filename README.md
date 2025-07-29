@@ -6,15 +6,8 @@ This repository demonstrates a production-ready CI/CD pipeline to build, contain
 
 📂 Repository Structure
 
-├── .github
-│   └── workflows
-│       ├── build.yml        # CI: Build, Dockerize & Push to DockerHub
-│       └── deploy.yml       # CD: Deploy image to EC2 via SSH
-├── Dockerfile               # Docker build for WAR file
-├── pom.xml                  # Maven project descriptor
-└── src/                     # Java source code
 
-<img width="1338" height="412" alt="image" src="https://github.com/user-attachments/assets/e28a47fd-5e15-4479-93f4-c2699cf542aa" />
+<img width="800" height="300" alt="image" src="https://github.com/user-attachments/assets/e28a47fd-5e15-4479-93f4-c2699cf542aa" />
 
 
 ---
